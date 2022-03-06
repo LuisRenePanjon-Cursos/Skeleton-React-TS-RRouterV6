@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { LazyPage1, LazyPage2, LazyPage3 } from '../lazyloadModule/pages';
 import logo from '../logo.svg';
 
 export const Navigation = () => {
@@ -13,12 +14,12 @@ export const Navigation = () => {
                 to='/'
                 className={({ isActive }) => (isActive ? 'nav-active' : '')}
               >
-                Home
+                Lazy 1
               </NavLink>
             </li>
             <li>
               <NavLink
-                to='/about'
+                to='/lazy2'
                 className={({ isActive }) => (isActive ? 'nav-active' : '')}
               >
                 About
@@ -26,7 +27,7 @@ export const Navigation = () => {
             </li>
             <li>
               <NavLink
-                to='/users'
+                to='/lazy3'
                 className={({ isActive }) => (isActive ? 'nav-active' : '')}
               >
                 Users
@@ -35,9 +36,9 @@ export const Navigation = () => {
           </ul>
         </nav>
         <Routes>
-          <Route path='about' element={<h1>About</h1>} />
-          <Route path='users' element={<h1>Users</h1>} />
-          <Route path='/' element={<h1>Home</h1>} />
+          <Route path='/' element={<LazyPage1 />} />
+          <Route path='Lazy2' element={<LazyPage2 />} />
+          <Route path='Lazy3' element={<LazyPage3 />} />
           <Route path='*' element={<h1>404</h1>} />
         </Routes>
       </div>
